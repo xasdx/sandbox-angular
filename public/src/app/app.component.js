@@ -17,10 +17,7 @@ let heroes = [
   selector: "my-app",
   template: `
     <h1>{{title}}</h1>
-    <div *ngIf="selectedHero">
-      <h2>{{selectedHero.name}}</h2>
-      <input [(ngModel)]="selectedHero.name">
-    </div>
+    <hero-detail [hero]="selectedHero"></hero-detail>
     <p>{{time}}</p>
     <hr>
     <h2>list of heroes</h2>
@@ -45,7 +42,7 @@ export class AppComponent {
   title = "hero editor"
   hero = { name: "arthas" }
 
-  selectedHero
+  selectedHero = null
   heroes = heroes
 
   constructor () {
