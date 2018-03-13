@@ -13,7 +13,8 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         query: {
-          presets: ["env"]
+          presets: ["env", "stage-0"],
+          plugins: ["transform-decorators-legacy"]
         }
       }
     ]

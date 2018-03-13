@@ -1,15 +1,12 @@
 import { Component } from "angular2/core"
 
-class AppComponent {
+@Component({
+  selector: "my-app",
+  template: "<h1>hello {{name}}</h1>"
+})
+export default class AppComponent {
 
-  static get annotations() {
-    return [
-      new Component({
-        selector: "my-app",
-        template: "<h1>hello</h1>"
-      })
-    ]
-  }
+  name = "angular"
 
   constructor () {}
 }
