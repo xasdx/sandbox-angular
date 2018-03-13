@@ -6,7 +6,8 @@ module.exports = {
     path: path.join(__dirname, "public", "dist"),
     filename: "vendor.js"
   },
-  devtool: "source-map",
+  watch: true,
+  //devtool: "source-map",
   module: {
     loaders: [
       {

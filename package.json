@@ -2,10 +2,8 @@
   "name": "sandbox-angular",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run lite",
     "lite": "lite-server",
-    "webpack": "webpack --progress",
-    "postinstall": "npm run webpack"
+    "webpack": "webpack --progress"
   },
   "dependencies": {
     "@angular/common": "~2.4.0",
