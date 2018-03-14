@@ -29,4 +29,4 @@ export class HeroDetailComponent {
   }
 }
 
-HeroDetailComponent.parameters = [[HeroService], [ActivatedRoute], [Location]]
+HeroDetailComponent.parameters = [[ HeroService ], [ ActivatedRoute ], [ Location ]]

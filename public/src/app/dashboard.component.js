@@ -19,4 +19,4 @@ export class DashboardComponent {
   }
 }
 
-DashboardComponent.parameters = [[HeroService]]
+DashboardComponent.parameters = [[ HeroService ]]
