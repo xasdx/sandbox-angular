@@ -3,7 +3,7 @@
   <li *ngFor="let hero of heroes"
       (click)="onSelect(hero)"
       [class.selected]="hero === selectedHero"
+      [routerLink]="['/detail', hero.id]"
   >{{hero.name}}</li>
 </ul>
 <hr>
-<hero-detail [hero]="selectedHero"></hero-detail>
