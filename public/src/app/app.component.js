@@ -2,15 +2,7 @@ import { Component } from "@angular/core"
 
 @Component({
   selector: "my-app",
-  template: `
-    <h1>{{title}}</h1>
-    <nav>
-      <a routerLink="/dashboard">dashboard</a>
-      <a routerLink="/heroes">heroes</a>
-    </nav>
-    <hr>
-    <router-outlet></router-outlet>
-  `
+  templateUrl: "public/src/app/app.component.html"
 })
 export class AppComponent {
 

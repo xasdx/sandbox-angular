@@ -2,12 +2,7 @@ import { Component, Input } from "@angular/core"
 
 @Component({
   selector: "hero-detail",
-  template: `
-    <div *ngIf="hero">
-      <h2>{{hero.name}}</h2>
-      <input [(ngModel)]="hero.name">
-    </div>
-  `
+  templateUrl: "public/src/app/hero-detail.component.html"
 })
 export class HeroDetailComponent {
   

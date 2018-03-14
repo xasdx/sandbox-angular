@@ -1,7 +1,22 @@
 import { Component } from "@angular/core"
 
+import { HeroService } from "./hero.service"
+
 @Component({
   selector: "my-dashboard",
-  template: "<h2>dashboard</h2>"
+  templateUrl: "public/src/app/dashboard.component.html"
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  
+  heroes = []
+
+  constructor(heroService) {
+    this.heroService = heroService
+  }
+
+  ngOnInit() {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes.slice(1, 5))
+  }
+}
+
+DashboardComponent.parameters = [[HeroService]]
