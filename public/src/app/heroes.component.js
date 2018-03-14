@@ -1,17 +1,12 @@
 import { Component } from "@angular/core"
+import { Router } from "@angular/router"
+
 import { HeroService } from "./hero.service"
 
 @Component({
   selector: "my-heroes",
   templateUrl: "public/src/app/heroes.component.html",
-  styles: [`
-    .heroes li {
-      cursor: pointer;
-    }
-    .heroes li.selected {
-      font-weight: bold;
-    }
-  `]
+  styleUrls: [ "public/src/app/heroes.component.css" ]
 })
 export class HeroesComponent {
 
@@ -20,8 +15,9 @@ export class HeroesComponent {
   selectedHero = null
   heroes = []
 
-  constructor(heroService) {
+  constructor(heroService, router) {
     this.heroService = heroService
+    this.router = router
   }
 
   ngOnInit() {
@@ -31,6 +27,10 @@ export class HeroesComponent {
   onSelect(hero) {
     this.selectedHero = hero
   }
+
+  gotoDetail() {
+    this.router.navigate(["/detail", this.selectedHero.id])
+  }
 }
 
-HeroesComponent.parameters = [[ HeroService ]]
+HeroesComponent.parameters = [[ HeroService], [ Router ]]

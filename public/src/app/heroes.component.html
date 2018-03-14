@@ -1,9 +1,13 @@
 <h2>list of heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes"
-      (click)="onSelect(hero)"
-      [class.selected]="hero === selectedHero"
-      [routerLink]="['/detail', hero.id]"
-  >{{hero.name}}</li>
-</ul>
-<hr>
+<div>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+        (click)="onSelect(hero)"
+        [class.selected]="hero === selectedHero"
+    >{{hero.name}}</li>
+  </ul>
+</div>
+<div *ngIf="selectedHero">
+  <p>{{selectedHero.name | uppercase}} is my hero</p>
+  <button (click)="gotoDetail()">view details</button>
+</div>
