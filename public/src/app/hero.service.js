@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { Http } from "@angular/http"
+import { Http, Headers } from "@angular/http"
 
 import "rxjs/add/operator/toPromise"
 
@@ -23,6 +23,14 @@ export class HeroService {
     return this.http.get(`${this.heroesUrl}/${id}`)
                     .toPromise()
                     .then(res => res.json().data)
+                    .catch(this.handleError)
+  }
+
+  update(hero) {
+    let headers = new Headers({ "Content-Type": "application/json" })
+    return this.http.put(`${this.heroesUrl}/${hero.id}`, JSON.stringify(hero), { headers })
+                    .toPromise()
+                    .then(() => hero)
                     .catch(this.handleError)
   }
 
