@@ -1,7 +1,14 @@
 .heroes li {
+  margin-top: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
 }
 
 .heroes li.selected {
   font-weight: bold;
+}
+
+button.delete {
+  float: right;
+  margin-right: .8em;
 }

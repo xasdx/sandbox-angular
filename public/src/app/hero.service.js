@@ -26,11 +26,26 @@ export class HeroService {
                     .catch(this.handleError)
   }
 
+  create(name) {
+    let headers = new Headers({ "Content-Type": "application/json" })
+    return this.http.post(this.heroesUrl, JSON.stringify({ name }), { headers })
+                    .toPromise()
+                    .then(res => res.json().data)
+                    .catch(this.handleError)
+  }
+
   update(hero) {
     let headers = new Headers({ "Content-Type": "application/json" })
     return this.http.put(`${this.heroesUrl}/${hero.id}`, JSON.stringify(hero), { headers })
                     .toPromise()
                     .then(() => hero)
+                    .catch(this.handleError)
+  }
+
+  delete(id) {
+    return this.http.delete(`${this.heroesUrl}/${id}`)
+                    .toPromise()
+                    .then(() => null)
                     .catch(this.handleError)
   }
 
