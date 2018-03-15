@@ -1,4 +1,4 @@
-export const heroes = [
+let heroes = [
   { id: 11, name: 'Mr. Nice' },
   { id: 12, name: 'Narco' },
   { id: 13, name: 'Bombasto' },
@@ -10,3 +10,10 @@ export const heroes = [
   { id: 19, name: 'Magma' },
   { id: 20, name: 'Tornado' }
 ]
+
+export class InMemoryDataService {
+
+  createDb() {
+    return { heroes }
+  }
+}

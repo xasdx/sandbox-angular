@@ -31,4 +31,4 @@ export class HeroesComponent {
   }
 }
 
-HeroesComponent.parameters = [[ HeroService], [ Router ]]
+HeroesComponent.parameters = [[ HeroService ], [ Router ]]
