@@ -1,11 +1,11 @@
 import { Component } from "@angular/core"
 
-import { HeroService } from "./hero.service"
+import { HeroService } from "../hero.service"
 
 @Component({
   selector: "my-dashboard",
-  templateUrl: "public/src/app/dashboard.component.html",
-  styleUrls: [ "public/src/app/dashboard.component.css" ]
+  templateUrl: "public/src/app/dashboard/dashboard.component.html",
+  styleUrls: [ "public/src/app/dashboard/dashboard.component.css" ]
 })
 export class DashboardComponent {
   

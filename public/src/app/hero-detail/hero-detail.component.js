@@ -1,13 +1,14 @@
 import { Component } from "@angular/core"
 import { ActivatedRoute, Params } from "@angular/router"
 import { Location } from "@angular/common"
+
 import "rxjs/add/operator/switchMap"
 
-import { HeroService } from "./hero.service"
+import { HeroService } from "../hero.service"
 
 @Component({
   selector: "hero-detail",
-  templateUrl: "public/src/app/hero-detail.component.html"
+  templateUrl: "public/src/app/hero-detail/hero-detail.component.html"
 })
 export class HeroDetailComponent {
   

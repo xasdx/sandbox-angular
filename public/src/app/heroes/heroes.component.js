@@ -1,16 +1,14 @@
 import { Component } from "@angular/core"
 import { Router } from "@angular/router"
 
-import { HeroService } from "./hero.service"
+import { HeroService } from "../hero.service"
 
 @Component({
   selector: "my-heroes",
-  templateUrl: "public/src/app/heroes.component.html",
-  styleUrls: [ "public/src/app/heroes.component.css" ]
+  templateUrl: "public/src/app/heroes/heroes.component.html",
+  styleUrls: [ "public/src/app/heroes/heroes.component.css" ]
 })
 export class HeroesComponent {
-
-  title = "hero editor"
 
   selectedHero = null
   heroes = []
