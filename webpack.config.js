@@ -17,6 +17,10 @@ module.exports = {
           presets: ["env", "stage-0"],
           plugins: ["transform-decorators-legacy"]
         }
+      },
+      {
+        test: /(\.html|\.css)$/,
+        loader: "raw-loader"
       }
     ]
   }

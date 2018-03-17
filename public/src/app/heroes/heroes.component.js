@@ -5,8 +5,8 @@ import { HeroService } from "../hero.service"
 
 @Component({
   selector: "my-heroes",
-  templateUrl: "src/app/heroes/heroes.component.html",
-  styleUrls: ["src/app/heroes/heroes.component.css"]
+  template: require("./heroes.component.html"),
+  styles: [require("./heroes.component.css")]
 })
 export class HeroesComponent {
 

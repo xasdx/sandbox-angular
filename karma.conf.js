@@ -5,7 +5,8 @@ module.exports = (config) => {
     plugins: [
       "karma-jasmine",
       "karma-webpack",
-      "karma-phantomjs-launcher"
+      "karma-phantomjs-launcher",
+      "karma-spec-reporter"
     ],
     files: [
       "public/src/test.context.js"
@@ -23,13 +24,17 @@ module.exports = (config) => {
               presets: ["env", "stage-0"],
               plugins: ["transform-decorators-legacy"]
             }
+          },
+          {
+            test: /(\.html|\.css)$/,
+            loader: "raw-loader"
           }
         ]
       },
       watch: true
     },
     webpackServer: { noInfo: true },
-    reporters: ["progress"],
+    reporters: ["spec"],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

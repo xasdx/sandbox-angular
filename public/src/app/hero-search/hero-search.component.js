@@ -12,7 +12,7 @@ import { HeroSearchService } from "../hero-search.service"
 
 @Component({
   selector: "hero-search",
-  templateUrl: "src/app/hero-search/hero-search.component.html",
+  template: require("./hero-search.component.html"),
   providers: [HeroSearchService]
 })
 export class HeroSearchComponent {
