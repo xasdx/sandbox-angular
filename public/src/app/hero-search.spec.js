@@ -47,7 +47,8 @@ describe("HeroSearchService", () => {
 
   it("returns the result of a search", fakeAsync(inject([HeroSearchService], service => {
     service.search("term").subscribe(res => {
-      //expect(mockHttp.get).to.have.been.calledWith("api/heroes?name=term")
+      expect(mockHttp.get.calls.count()).to.equal(1)
+      expect(mockHttp.get.calls.argsFor(0)[0]).to.equal("api/heroes?name=term")
       expect(res).to.equal(heroes)
     })
   })))
