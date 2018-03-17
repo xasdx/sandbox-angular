@@ -2,7 +2,7 @@
   "name": "sandbox-angular",
   "version": "1.0.0",
   "scripts": {
-    "lite": "lite-server",
+    "lite": "lite-server --baseDir=public",
     "webpack": "webpack --progress",
     "test": "karma start"
   },

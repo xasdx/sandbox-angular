@@ -12,8 +12,8 @@ import { HeroSearchService } from "../hero-search.service"
 
 @Component({
   selector: "hero-search",
-  templateUrl: "public/src/app/hero-search/hero-search.component.html",
-  providers: [ HeroSearchService ]
+  templateUrl: "src/app/hero-search/hero-search.component.html",
+  providers: [HeroSearchService]
 })
 export class HeroSearchComponent {
   
@@ -46,4 +46,4 @@ export class HeroSearchComponent {
   }
 }
 
-HeroSearchComponent.parameters = [[ HeroSearchService ], [ Router ]]
+HeroSearchComponent.parameters = [[HeroSearchService], [Router]]

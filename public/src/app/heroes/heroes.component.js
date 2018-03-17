@@ -5,8 +5,8 @@ import { HeroService } from "../hero.service"
 
 @Component({
   selector: "my-heroes",
-  templateUrl: "public/src/app/heroes/heroes.component.html",
-  styleUrls: [ "public/src/app/heroes/heroes.component.css" ]
+  templateUrl: "src/app/heroes/heroes.component.html",
+  styleUrls: ["src/app/heroes/heroes.component.css"]
 })
 export class HeroesComponent {
 
@@ -47,4 +47,4 @@ export class HeroesComponent {
   }
 }
 
-HeroesComponent.parameters = [[ HeroService ], [ Router ]]
+HeroesComponent.parameters = [[HeroService], [Router]]

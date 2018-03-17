@@ -4,8 +4,8 @@ import { HeroService } from "../hero.service"
 
 @Component({
   selector: "my-dashboard",
-  templateUrl: "public/src/app/dashboard/dashboard.component.html",
-  styleUrls: [ "public/src/app/dashboard/dashboard.component.css" ]
+  templateUrl: "src/app/dashboard/dashboard.component.html",
+  styleUrls: ["src/app/dashboard/dashboard.component.css"]
 })
 export class DashboardComponent {
   
@@ -20,4 +20,4 @@ export class DashboardComponent {
   }
 }
 
-DashboardComponent.parameters = [[ HeroService ]]
+DashboardComponent.parameters = [[HeroService]]

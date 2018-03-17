@@ -8,7 +8,7 @@ import { HeroService } from "../hero.service"
 
 @Component({
   selector: "hero-detail",
-  templateUrl: "public/src/app/hero-detail/hero-detail.component.html"
+  templateUrl: "src/app/hero-detail/hero-detail.component.html"
 })
 export class HeroDetailComponent {
   
@@ -34,4 +34,4 @@ export class HeroDetailComponent {
   }
 }
 
-HeroDetailComponent.parameters = [[ HeroService ], [ ActivatedRoute ], [ Location ]]
+HeroDetailComponent.parameters = [[HeroService], [ActivatedRoute], [Location]]
