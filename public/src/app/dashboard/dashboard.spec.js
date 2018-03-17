@@ -1,6 +1,6 @@
-import { provide, destroyPlatform, NO_ERRORS_SCHEMA } from "@angular/core"
+import { destroyPlatform, NO_ERRORS_SCHEMA } from "@angular/core"
 import { RouterTestingModule } from "@angular/router/testing"
-import { async, inject, TestBed } from "@angular/core/testing"
+import { getTestBed, async, TestBed } from "@angular/core/testing"
 import { platformBrowserDynamicTesting, BrowserDynamicTestingModule } from "@angular/platform-browser-dynamic/testing"
 import { expect } from "chai"
 
@@ -31,7 +31,7 @@ describe("DashboardComponent", () => {
   beforeEach(() => destroyPlatform())
 
   beforeEach(async(() => {
-    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
+    if (!getTestBed().platform) { TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting()) }
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [DashboardComponent],
