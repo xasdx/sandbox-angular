@@ -3,22 +3,13 @@ import { RouterTestingModule } from "@angular/router/testing"
 import { async } from "@angular/core/testing"
 import { expect } from "chai"
 
-import { useTestBed } from "../test.helper"
-
+import { useTestBed, data as testData } from "../test.helper"
 import { HeroService } from "../hero.service"
 import { DashboardComponent } from "./dashboard.component"
 
 class MockHeroService {
 
-  heroes = [
-    { id: 11, name: "Mr. Nice" },
-    { id: 12, name: "Narco" },
-    { id: 13, name: "Bombasto" },
-    { id: 14, name: "Celeritas" },
-    { id: 15, name: "Magneta" },
-    { id: 16, name: "RubberMan" },
-    { id: 17, name: "Dynama" }
-  ]
+  heroes = testData.heroes
 
   getHeroes() {
     return Promise.resolve(this.heroes)
