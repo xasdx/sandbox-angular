@@ -1,12 +1,14 @@
 import { destroyPlatform } from "@angular/core"
 import { HttpModule, Http } from "@angular/http"
-import { getTestBed, fakeAsync, inject, TestBed } from "@angular/core/testing"
+import { fakeAsync, inject } from "@angular/core/testing"
 import { platformBrowserDynamicTesting, BrowserDynamicTestingModule } from "@angular/platform-browser-dynamic/testing"
 
 import { Observable } from "rxjs/Observable"
 import "rxjs/add/observable/of"
 
 import { expect } from "chai"
+
+import { useTestBed } from "./test.helper"
 
 import { HeroSearchService } from "./hero-search.service"
 
@@ -34,15 +36,13 @@ describe("HeroSearchService", () => {
       return { data: heroes } }
     }))
 
-    if (!getTestBed().platform) { TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting()) }
-
-    TestBed.configureTestingModule({
+    useTestBed(testBed => testBed.configureTestingModule({
       imports: [HttpModule],
       providers: [
         { provide: Http, useValue: mockHttp },
         HeroSearchService
       ]
-    })
+    }))
   })
 
   it("returns the result of a search", fakeAsync(inject([HeroSearchService], service => {

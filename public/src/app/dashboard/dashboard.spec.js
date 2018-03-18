@@ -1,8 +1,9 @@
 import { destroyPlatform, NO_ERRORS_SCHEMA } from "@angular/core"
 import { RouterTestingModule } from "@angular/router/testing"
-import { getTestBed, async, TestBed } from "@angular/core/testing"
-import { platformBrowserDynamicTesting, BrowserDynamicTestingModule } from "@angular/platform-browser-dynamic/testing"
+import { async } from "@angular/core/testing"
 import { expect } from "chai"
+
+import { useTestBed } from "../test.helper"
 
 import { HeroService } from "../hero.service"
 import { DashboardComponent } from "./dashboard.component"
@@ -31,14 +32,13 @@ describe("DashboardComponent", () => {
   beforeEach(() => destroyPlatform())
 
   beforeEach(async(() => {
-    if (!getTestBed().platform) { TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting()) }
-    TestBed.configureTestingModule({
+    useTestBed(testBed => testBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [DashboardComponent],
       providers: [{ provide: HeroService, useClass: MockHeroService }],
       schemas: [NO_ERRORS_SCHEMA]
-    }).compileComponents().then(() => {
-      fixture = TestBed.createComponent(DashboardComponent)
+    })).then(testBed => {
+      fixture = testBed.createComponent(DashboardComponent)
       fixture.detectChanges()
     })
   }))
