@@ -1,20 +1,16 @@
-import { destroyPlatform } from "@angular/core"
 import { HttpModule, Http } from "@angular/http"
 import { fakeAsync, inject } from "@angular/core/testing"
 import { Observable } from "rxjs/Observable"
 import "rxjs/add/observable/of"
-import { expect } from "chai"
 
-import { useTestBed, data as testData } from "./test.helper"
+import { useTestBed, data as testData, expect } from "./test.helper"
 import { HeroSearchService } from "./hero-search.service"
 
 let heroes = testData.heroes
 
 describe("HeroSearchService", () => {
 
-  let mockHttp
-
-  beforeEach(() => destroyPlatform())
+  let mockHttp = null
 
   beforeEach(() => {
 

@@ -1,9 +1,8 @@
-import { destroyPlatform, NO_ERRORS_SCHEMA } from "@angular/core"
+import { NO_ERRORS_SCHEMA } from "@angular/core"
 import { RouterTestingModule } from "@angular/router/testing"
 import { async } from "@angular/core/testing"
-import { expect } from "chai"
 
-import { useTestBed, data as testData } from "../test.helper"
+import { useTestBed, data as testData, expect } from "../test.helper"
 import { HeroService } from "../hero.service"
 import { DashboardComponent } from "./dashboard.component"
 
@@ -19,8 +18,6 @@ class MockHeroService {
 describe("DashboardComponent", () => {
 
   let fixture = null
-
-  beforeEach(() => destroyPlatform())
 
   beforeEach(async(() => {
     useTestBed(testBed => testBed.configureTestingModule({

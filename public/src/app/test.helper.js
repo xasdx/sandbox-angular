@@ -1,5 +1,7 @@
+import { destroyPlatform } from "@angular/core"
 import { platformBrowserDynamicTesting, BrowserDynamicTestingModule } from "@angular/platform-browser-dynamic/testing"
 import { getTestBed } from "@angular/core/testing"
+import { expect } from "chai"
 
 let data = {
   heroes: [
@@ -14,10 +16,11 @@ let data = {
 }
 
 let useTestBed = (configure) => {
+  destroyPlatform()
   let testBed = getTestBed()
   if (!testBed.platform) { testBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting()) }
   if (configure) { configure(testBed) }
   return testBed.compileComponents().then(() => testBed)
 }
 
-export { useTestBed, data }
+export { useTestBed, data, expect }
