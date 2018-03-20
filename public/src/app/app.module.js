@@ -15,6 +15,7 @@ import { HeroDetailComponent } from "./hero-detail/hero-detail.component"
 import { HeroSearchComponent } from "./hero-search/hero-search.component"
 import { ClockComponent } from "./clock/clock.component"
 import { HeroService } from "./hero.service"
+import { ClockPipe } from "./clock.pipe"
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { HeroService } from "./hero.service"
     HeroesComponent,
     HeroDetailComponent,
     HeroSearchComponent,
-    ClockComponent
+    ClockComponent,
+    ClockPipe
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]
