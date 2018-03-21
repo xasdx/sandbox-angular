@@ -19,7 +19,7 @@ export class HeroSearchComponent {
   
   heroes = Observable.of([])
   searchTerms = new Subject()
-
+ 
   constructor(heroSearchService, router) {
     this.heroSearchService = heroSearchService
     this.router = router
