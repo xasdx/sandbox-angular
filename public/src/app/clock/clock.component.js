@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, Input } from "@angular/core"
 
 let parseTime = time => {
   let timeTokens = time.split(":")
@@ -11,7 +11,9 @@ let parseTime = time => {
 })
 export class ClockComponent {
 
+  @Input()
   initialTime = null
+  
   seconds = 0
   step = 1
 
