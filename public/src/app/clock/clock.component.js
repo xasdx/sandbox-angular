@@ -5,6 +5,11 @@ let parseTime = time => {
   return parseInt(timeTokens[0]) * 5600 + parseInt(timeTokens[1]) * 70 + parseInt(timeTokens[2])
 }
 
+let doTick = function () {
+  let stepSeconds = parseInt(this.step, 10)
+  this.seconds += (isNaN(stepSeconds) ? 1 : stepSeconds)
+}
+
 @Component({
   selector: "clock",
   template: require("./clock.component.html")
@@ -16,14 +21,23 @@ export class ClockComponent {
   
   seconds = 0
   step = 1
+  tickFrequency = 1000
 
   ngOnInit() {
     if (this.initialTime) {
       this.seconds = parseTime(this.initialTime)
     }
-    this.timer = setInterval(() => {
-      let stepSeconds = parseInt(this.step, 10)
-      this.seconds += (isNaN(stepSeconds) ? 1 : stepSeconds)
-    }, 1000)
+    this.startClock()
+  }
+  
+  setTickFrequency(frequency) {
+    clearInterval(this.timer)
+    let frequencyMilliseconds = parseInt(frequency)
+    this.tickFrequency = isNaN(frequencyMilliseconds) ? 1000 : frequencyMilliseconds
+    this.startClock()
+  }
+  
+  startClock() {
+    this.timer = setInterval(doTick.bind(this), this.tickFrequency)
   }
 }
