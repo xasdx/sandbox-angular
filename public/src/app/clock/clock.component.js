@@ -22,7 +22,8 @@ export class ClockComponent {
       this.seconds = parseTime(this.initialTime)
     }
     this.timer = setInterval(() => {
-      this.seconds += this.step
+      let stepSeconds = parseInt(this.step, 10)
+      this.seconds += (isNaN(stepSeconds) ? 1 : stepSeconds)
     }, 1000)
   }
 }
