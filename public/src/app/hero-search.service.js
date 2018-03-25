@@ -16,4 +16,4 @@ export class HeroSearchService {
   }
 }
 
-HeroSearchService.parameters = [[ Http ]]
+HeroSearchService.parameters = [[Http]]

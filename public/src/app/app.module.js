@@ -4,7 +4,9 @@ import { FormsModule } from "@angular/forms"
 import { HttpModule } from "@angular/http"
 
 import { StoreModule } from "@ngrx/store"
+import { EffectsModule } from "@ngrx/effects"
 import { heroReducer } from "./reducers/hero.reducer"
+import { HeroEffects } from "./effects/hero.effects"
 
 import { InMemoryWebApiModule } from "angular2-in-memory-web-api"
 import { InMemoryDataService } from "./in-memory-data.service"
@@ -27,7 +29,8 @@ import { ClockPipe } from "./clock.pipe"
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
-    StoreModule.provideStore({ heroes: heroReducer })
+    StoreModule.provideStore({ heroes: heroReducer }),
+    EffectsModule.run(HeroEffects)
   ],
   declarations: [
     AppComponent,
