@@ -6,7 +6,7 @@
 </div>
 <div>
   <ul class="heroes">
-    <li *ngFor="let hero of heroes"
+    <li *ngFor="let hero of heroes | async"
         (click)="onSelect(hero)"
         [class.selected]="hero === selectedHero">
           <span>{{hero.name}}</span>

@@ -3,6 +3,9 @@ import { BrowserModule } from "@angular/platform-browser"
 import { FormsModule } from "@angular/forms"
 import { HttpModule } from "@angular/http"
 
+import { StoreModule } from "@ngrx/store"
+import { heroReducer } from "./reducers/hero.reducer"
+
 import { InMemoryWebApiModule } from "angular2-in-memory-web-api"
 import { InMemoryDataService } from "./in-memory-data.service"
 
@@ -23,7 +26,8 @@ import { ClockPipe } from "./clock.pipe"
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.provideStore({ heroes: heroReducer })
   ],
   declarations: [
     AppComponent,

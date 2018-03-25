@@ -1,7 +1,12 @@
 import { Component } from "@angular/core"
 import { Router } from "@angular/router"
+import { Observable } from "rxjs/Observable"
+import { Store } from "@ngrx/store"
+
+import "rxjs/add/observable/of"
 
 import { HeroService } from "../hero.service"
+import * as heroActions from "../actions/hero.actions"
 
 @Component({
   selector: "my-heroes",
@@ -11,15 +16,17 @@ import { HeroService } from "../hero.service"
 export class HeroesComponent {
 
   selectedHero = null
-  heroes = []
+  heroes = Observable.of([])
 
-  constructor(heroService, router) {
+  constructor(heroService, router, store) {
     this.heroService = heroService
     this.router = router
+    this.store = store
+    this.heroes = this.store.select(state => state.heroes)
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes)
+    this.store.dispatch(new heroActions.LoadHeroesAction())
   }
 
   onSelect(hero) {
@@ -47,4 +54,4 @@ export class HeroesComponent {
   }
 }
 
-HeroesComponent.parameters = [[HeroService], [Router]]
+HeroesComponent.parameters = [[HeroService], [Router], [Store]]
