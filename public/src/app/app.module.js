@@ -5,6 +5,7 @@ import { HttpModule } from "@angular/http"
 
 import { StoreModule } from "@ngrx/store"
 import { EffectsModule } from "@ngrx/effects"
+import { StoreDevtoolsModule } from "@ngrx/store-devtools"
 import { heroReducer } from "./reducers/hero.reducer"
 import { HeroEffects } from "./effects/hero.effects"
 
@@ -30,6 +31,7 @@ import { ClockPipe } from "./clock.pipe"
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
     StoreModule.provideStore({ heroes: heroReducer }),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
     EffectsModule.run(HeroEffects)
   ],
   declarations: [
