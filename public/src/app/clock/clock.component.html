@@ -1,4 +1,4 @@
 <label>stepSeconds: <input type="text" [(ngModel)]="step"/></label>
 <br>
 <label>tickFrequency: <input #tickInput type="text" [ngModel]="tickFrequency" (keyup)="setTickFrequency(tickInput.value)"/></label>
-<p>{{ seconds | clock }}</p>
+<p id="clock">{{ seconds | clock }}</p>

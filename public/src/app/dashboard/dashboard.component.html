@@ -1,6 +1,6 @@
 <h2>top heroes</h2>
 <div class="hero-list">
-  <div *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]">
+  <div *ngFor="let hero of heroes | async" [routerLink]="['/detail', hero.id]">
     <p>{{hero.name}}</p>
   </div>
 </div>

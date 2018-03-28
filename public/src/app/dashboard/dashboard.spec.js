@@ -1,10 +1,14 @@
 import { NO_ERRORS_SCHEMA } from "@angular/core"
 import { RouterTestingModule } from "@angular/router/testing"
 import { async } from "@angular/core/testing"
+import { StoreModule } from "@ngrx/store"
+import { EffectsModule } from "@ngrx/effects"
 
 import { useTestBed, data as testData, expect } from "../test.helper"
 import { HeroService } from "../hero.service"
 import { DashboardComponent } from "./dashboard.component"
+import { heroReducer } from "../reducers/hero.reducer"
+import { HeroEffects } from "../effects/hero.effects"
 
 class MockHeroService {
 
@@ -21,7 +25,11 @@ describe("DashboardComponent", () => {
 
   beforeEach(async(() => {
     useTestBed(testBed => testBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [
+        RouterTestingModule,
+        StoreModule.provideStore({ heroes: heroReducer }),
+        EffectsModule.run(HeroEffects)
+      ],
       declarations: [DashboardComponent],
       providers: [{ provide: HeroService, useClass: MockHeroService }],
       schemas: [NO_ERRORS_SCHEMA]
@@ -39,8 +47,8 @@ describe("DashboardComponent", () => {
     }).then(() => {
       let compiled = fixture.debugElement.nativeElement
       let heroes = compiled.querySelectorAll(".hero-list div p")
-      expect(heroes.length).to.equal(4)
-      expect([...heroes].map(e => e.innerText)).to.include.members(["Narco", "Bombasto", "Celeritas", "Magneta"])
+      expect(heroes.length).to.equal(5)
+      expect([...heroes].map(e => e.innerText)).to.include.members(["Narco", "Bombasto", "Celeritas", "Magneta", "RubberMan"])
     })
   }))
 })

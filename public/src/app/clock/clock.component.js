@@ -31,7 +31,7 @@ export class ClockComponent {
   }
   
   setTickFrequency(frequency) {
-    clearInterval(this.timer)
+    this.stopClock()
     let frequencyMilliseconds = parseInt(frequency)
     this.tickFrequency = isNaN(frequencyMilliseconds) ? 1000 : frequencyMilliseconds
     this.startClock()
@@ -39,5 +39,9 @@ export class ClockComponent {
   
   startClock() {
     this.timer = setInterval(doTick.bind(this), this.tickFrequency)
+  }
+  
+  stopClock() {
+    clearInterval(this.timer)
   }
 }
