@@ -12,10 +12,20 @@ export class HeroEffects {
   @Effect()
   loadHeroes = null
 
+  @Effect()
+  deleteHero = null
+
   constructor(heroService, actions) {
     this.heroService = heroService
-    this.loadHeroes = actions.ofType(heroActions.LOAD_HEROES)
-                             .switchMap(() => this.heroService.getHeroes().then(heroes => new heroActions.LoadHeroesSuccessAction(heroes)))
+
+    let loadHeroes = () => this.heroService.getHeroes()
+                               .then(heroes => new heroActions.LoadHeroesSuccessAction(heroes))
+
+    let deleteHero = action => this.heroService.delete(action.payload)
+                                   .then(_ => new heroActions.DeleteHeroSuccessAction(action.payload))
+
+    this.loadHeroes = actions.ofType(heroActions.LOAD_HEROES).switchMap(loadHeroes)
+    this.deleteHero = actions.ofType(heroActions.DELETE_HERO).switchMap(deleteHero)
   }
 }
 

@@ -47,10 +47,7 @@ export class HeroesComponent {
   }
 
   delete(hero) {
-    this.heroService.delete(hero.id).then(() => {
-      this.heroes = this.heroes.filter(h => h !== hero)
-      if (this.selectedHero === hero) { this.selectedHero = null }
-    })
+    this.store.dispatch(new heroActions.DeleteHeroAction(hero.id))
   }
 }
 
