@@ -1,4 +1,8 @@
+<ng-content select="header"></ng-content>
+<br>
 <label>stepSeconds: <input type="text" [(ngModel)]="step"/></label>
 <br>
 <label>tickFrequency: <input #tickInput type="text" [ngModel]="tickFrequency" (keyup)="setTickFrequency(tickInput.value)"/></label>
 <p [ngStyle]="clockStyles">{{ seconds | clock }}</p>
+<ng-content select="footer"></ng-content>
+<br>
