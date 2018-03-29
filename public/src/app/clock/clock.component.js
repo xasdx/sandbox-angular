@@ -8,6 +8,7 @@ let parseTime = time => {
 let doTick = function () {
   let stepSeconds = parseInt(this.step, 10)
   this.seconds += (isNaN(stepSeconds) ? 1 : stepSeconds)
+  this.clockStyles.color = (this.seconds % 2 === 0) ? "black" : "red"
 }
 
 @Component({
@@ -22,6 +23,10 @@ export class ClockComponent {
   seconds = 0
   step = 1
   tickFrequency = 1000
+
+  clockStyles = {
+    color: "red"
+  }
 
   ngOnInit() {
     if (this.initialTime) {
