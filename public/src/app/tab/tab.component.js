@@ -12,13 +12,19 @@ import * as heroActions from "../actions/hero.actions"
 })
 export class TabComponent {
   
-  tab = 0
+  selectedTabIndex = -1
+
+  tabs = [
+    { title: "1", content: "First tab" },
+    { title: "2", content: "Second tab" },
+    { title: "3", content: "Third tab" }
+  ]
 
   setTab(index) {
-    this.tab = index
+    this.selectedTabIndex = index
   }
 
   isSelected(index) {
-    return this.tab === index
+    return this.selectedTabIndex === index
   }
 }

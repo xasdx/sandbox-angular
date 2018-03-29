@@ -1,12 +1,12 @@
 <div>
-  <button [class.selected]="isSelected(1)" (click)="setTab(1)">1</button>
-  <button [class.selected]="isSelected(2)" (click)="setTab(2)">2</button>
-  <button [class.selected]="isSelected(3)" (click)="setTab(3)">3</button>
+  <button *ngFor="let tab of tabs; let i = index"
+          [class.selected]="isSelected(i)"
+          (click)="setTab(i)">{{tab.title}}</button>
 </div>
 
-<div [ngSwitch]="tab">
-  <div *ngSwitchCase="1">First tab</div>
-  <div *ngSwitchCase="2">Second tab</div>
-  <div *ngSwitchCase="3">Third tab</div>
+<div [ngSwitch]="selectedTabIndex">
+  <template ngFor [ngForOf]="tabs" let-tab let-i="index">
+    <div *ngSwitchCase="i">{{tab.content}}</div>
+  </template>
   <div *ngSwitchDefault>Select a tab</div>
 </div>
