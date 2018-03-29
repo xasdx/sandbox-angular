@@ -20,6 +20,8 @@ import { HeroesComponent } from "./heroes/heroes.component"
 import { HeroDetailComponent } from "./hero-detail/hero-detail.component"
 import { HeroSearchComponent } from "./hero-search/hero-search.component"
 import { ClockComponent } from "./clock/clock.component"
+import { TabComponent } from "./tab/tab.component"
+
 import { HeroService } from "./hero.service"
 import { ClockPipe } from "./clock.pipe"
 
@@ -41,6 +43,7 @@ import { ClockPipe } from "./clock.pipe"
     HeroDetailComponent,
     HeroSearchComponent,
     ClockComponent,
+    TabComponent,
     ClockPipe
   ],
   providers: [ HeroService ],
