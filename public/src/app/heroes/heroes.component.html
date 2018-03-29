@@ -6,10 +6,11 @@
 </div>
 <div>
   <ul class="heroes">
-    <li *ngFor="let hero of heroes | async"
+    <li *ngFor="let hero of heroes | async; let i = index; let isOdd = odd"
         (click)="onSelect(hero)"
+        [ngClass]="{ odd: isOdd }"
         [class.selected]="hero === selectedHero">
-          <span>{{hero.name}}</span>
+          <span>{{i + 1}} - {{hero.name}}</span>
           <button class="delete" (click)="delete(hero); $event.stopPropagation()">x</button>
     </li>
   </ul>
